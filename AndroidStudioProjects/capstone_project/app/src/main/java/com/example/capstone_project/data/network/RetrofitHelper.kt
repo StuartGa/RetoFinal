@@ -5,9 +5,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
 
-    fun getRetrofit(Url: String): Retrofit {
-        return  Retrofit.Builder()
-            .baseUrl(Url)
+    fun getRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(CriptoEndpoints.criptoUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

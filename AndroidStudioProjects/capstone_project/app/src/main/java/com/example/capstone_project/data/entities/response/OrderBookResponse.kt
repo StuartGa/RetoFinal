@@ -1,9 +1,12 @@
 package com.example.capstone_project.data.entities.response
 
 import com.example.capstone_project.data.entities.model.Ask
+import com.example.capstone_project.data.entities.model.Bid
+import com.example.capstone_project.data.entities.model.BidsAskModel
 import com.google.gson.annotations.SerializedName
 
-data class AskResponse(
+data class OrderBookResponse(
     @SerializedName("success") val isSucces: Boolean,
-    @SerializedName("asks") val asks: List<Ask>
+    @SerializedName("payload") val payload: BidsAskModel
+
 )
