@@ -51,20 +51,33 @@ class CriptoDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         CoroutineScope(Dispatchers.Main).launch {
-            criptoViewModel.getOrderBooks(bookName)
-            criptoViewModel.orderBooks.collect {
+            criptoViewModel.getAsks(bookName)
+            criptoViewModel.getBids(bookName)
+            criptoViewModel.asks.collect {
                 when (it) {
                     is Resource.Error -> {}
                     is Resource.Loading -> {}
                     is Resource.Success -> {
-                        adapterBids.submitList(it.data.payload.bid)
-                        adapterAsks.submitList(it.data.payload.asks)
+                        adapterAsks.submitList(it.data)
                         binding.apply {
-                            recyclerBids.adapter = adapterBids
                             this.imageBitcoinDetail.setImageResource(Util.getResources(bookName))
-                            recyclerBids.layoutManager = LinearLayoutManager(requireContext())
                             recyclerAsks.adapter = adapterAsks
                             recyclerAsks.layoutManager = LinearLayoutManager(requireContext())
+                        }
+                    }
+                }
+                CoroutineScope(Dispatchers.Main).launch {
+                    criptoViewModel.bids.collect {
+                        when (it) {
+                            is Resource.Error -> {}
+                            is Resource.Loading -> {}
+                            is Resource.Success -> {
+                                binding.apply {
+                                    adapterBids.submitList(it.data)
+                                    recyclerBids.layoutManager = LinearLayoutManager(requireContext())
+                                    recyclerBids.adapter = adapterBids
+                                }
+                            }
                         }
                     }
                 }

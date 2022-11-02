@@ -1,4 +1,4 @@
-package com.example.capstone_project.data.entities.model
+package com.example.capstone_project.data.network.entities.model
 
 import com.google.gson.annotations.SerializedName
 

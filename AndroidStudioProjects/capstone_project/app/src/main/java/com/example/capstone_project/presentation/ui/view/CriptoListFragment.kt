@@ -12,8 +12,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.capstone_project.R
 import com.example.capstone_project.data.Resource
-import com.example.capstone_project.data.entities.model.Book
 import com.example.capstone_project.databinding.FragmentCriptoListBinding
+import com.example.capstone_project.domain.model.BookDomain
 import com.example.capstone_project.presentation.ui.adapter.AvailableBookAdapter
 import com.example.capstone_project.presentation.ui.adapter.OnSelectedItem
 import com.example.capstone_project.presentation.ui.viewmodel.MainActivityViewModel
@@ -72,7 +72,7 @@ class CriptoListFragment : Fragment(), OnSelectedItem {
         _binding = null
     }
 
-    override fun onItemListener(book: Book) {
+    override fun onItemListener(book: BookDomain) {
         val bundle = bundleOf("bookName" to book.book)
         findNavController().navigate(R.id.action_criptoListFragment_to_cryptoDetailFragment, bundle)
     }

@@ -1,8 +1,8 @@
 package com.example.capstone_project.data.network.service
 
 
-import com.example.capstone_project.data.entities.model.BidsAskModel
-import com.example.capstone_project.data.entities.response.OrderBookResponse
+import com.example.capstone_project.data.network.entities.model.BidsAskModel
+import com.example.capstone_project.data.network.entities.response.OrderBookResponse
 import com.example.capstone_project.data.network.CriptoApiClient
 import com.example.capstone_project.data.network.RetrofitHelper
 import kotlinx.coroutines.Dispatchers

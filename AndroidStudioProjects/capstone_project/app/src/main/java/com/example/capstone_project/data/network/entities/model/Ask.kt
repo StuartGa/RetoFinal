@@ -1,4 +1,4 @@
-package com.example.capstone_project.data.entities.model
+package com.example.capstone_project.data.network.entities.model
 
 data class Ask(
     val book: String,

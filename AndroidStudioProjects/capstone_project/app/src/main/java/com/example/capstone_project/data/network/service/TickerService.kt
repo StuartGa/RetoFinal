@@ -1,8 +1,8 @@
 package com.example.capstone_project.data.network.service
 
 import android.util.Log
-import com.example.capstone_project.data.entities.model.Ticker
-import com.example.capstone_project.data.entities.response.TickerResponse
+import com.example.capstone_project.data.network.entities.model.Ticker
+import com.example.capstone_project.data.network.entities.response.TickerResponse
 import com.example.capstone_project.data.network.CriptoApiClient
 import com.example.capstone_project.data.network.RetrofitHelper
 import kotlinx.coroutines.Dispatchers

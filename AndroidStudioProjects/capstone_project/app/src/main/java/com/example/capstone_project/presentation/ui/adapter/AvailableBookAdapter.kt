@@ -5,19 +5,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.capstone_project.data.entities.model.Book
+import com.example.capstone_project.data.network.entities.model.Book
 import com.example.capstone_project.databinding.CriptoCardBinding
+import com.example.capstone_project.domain.model.BookDomain
 import com.example.capstone_project.presentation.Util
 
 class AvailableBookAdapter(
     private val listener: OnSelectedItem
-) : ListAdapter<Book, AvailableBookAdapter.ViewHolder>(difCallback) {
+) : ListAdapter<BookDomain, AvailableBookAdapter.ViewHolder>(difCallback) {
 
     companion object {
-        var difCallback = object : DiffUtil.ItemCallback<Book>() {
-            override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean =
+        var difCallback = object : DiffUtil.ItemCallback<BookDomain>() {
+            override fun areItemsTheSame(oldItem: BookDomain, newItem: BookDomain): Boolean =
                 oldItem.book == newItem.book
-            override fun areContentsTheSame(oldItem: Book, newItem: Book): Boolean =
+            override fun areContentsTheSame(oldItem: BookDomain, newItem: BookDomain): Boolean =
                 oldItem == newItem
         }
     }
@@ -33,7 +34,7 @@ class AvailableBookAdapter(
     }
 
     inner class ViewHolder(val binding: CriptoCardBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun enlazarItem(bookModel: Book) {
+        fun enlazarItem(bookModel: BookDomain) {
             binding.txtBookName.text = bookModel.book
             binding.txtMaximumPriceValue.text = bookModel.minium_value.toString()
             binding.txtMinimumPriceValue.text = bookModel.minium_price.toString()

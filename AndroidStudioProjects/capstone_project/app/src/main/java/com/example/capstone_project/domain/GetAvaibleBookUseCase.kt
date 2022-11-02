@@ -2,19 +2,24 @@ package com.example.capstone_project.domain
 
 import com.example.capstone_project.data.Resource
 import com.example.capstone_project.data.Respository.CriptoRepository
-import com.example.capstone_project.data.entities.model.Book
-import com.example.capstone_project.data.entities.response.AvaibleBookResponse
+import com.example.capstone_project.data.local.entities.toDatabase
+import com.example.capstone_project.domain.model.BookDomain
+import com.example.capstone_project.presentation.Util
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class GetAvaibleBookUseCase {
     val repository = CriptoRepository()
 
-    suspend fun invoke(): Flow<Resource<List<Book>>> =
-        flow<Resource<List<Book>>> {
+    suspend fun invoke(): Flow<Resource<List<BookDomain>>> =
+        flow<Resource<List<BookDomain>>> {
             emit(Resource.loading())
             try {
-                emit(Resource.success(repository.getAvaibleBook()))
+                val book = (if (Util.isNetworkEnabled()) repository.getAvaibleBookApi() else repository.getAvaibleBookLocal())
+                if (book.isNotEmpty()) {
+                    repository.insertAvailableBooks(book.map { it.toDatabase() })
+                }
+                emit(Resource.success(book))
             } catch (e: java.lang.Exception) {
                 emit(Resource.error(e.message.toString()))
             }

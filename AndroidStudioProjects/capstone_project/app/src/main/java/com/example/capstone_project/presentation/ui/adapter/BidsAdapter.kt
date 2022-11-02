@@ -5,15 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.capstone_project.data.entities.model.Bid
+import com.example.capstone_project.data.network.entities.model.Bid
 import com.example.capstone_project.databinding.CriptoBidsItemBinding
+import com.example.capstone_project.domain.model.BidDomain
 
-class BidsAdapter() : ListAdapter<Bid, BidsAdapter.ViewHolder>(difCallback) {
+class BidsAdapter() : ListAdapter<BidDomain, BidsAdapter.ViewHolder>(difCallback) {
     companion object {
-        var difCallback = object : DiffUtil.ItemCallback<Bid>() {
-            override fun areItemsTheSame(oldItem: Bid, newItem: Bid): Boolean =
+        var difCallback = object : DiffUtil.ItemCallback<BidDomain>() {
+            override fun areItemsTheSame(oldItem: BidDomain, newItem: BidDomain): Boolean =
                 oldItem.book == newItem.book
-            override fun areContentsTheSame(oldItem: Bid, newItem: Bid): Boolean =
+            override fun areContentsTheSame(oldItem: BidDomain, newItem: BidDomain): Boolean =
                 oldItem == newItem
         }
     }
@@ -29,7 +30,7 @@ class BidsAdapter() : ListAdapter<Bid, BidsAdapter.ViewHolder>(difCallback) {
     }
 
     inner class ViewHolder(val binding: CriptoBidsItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun enlazarItem(bidsModel: Bid) {
+        fun enlazarItem(bidsModel: BidDomain) {
             binding.txtBookBids.text = bidsModel.book
             binding.txtPriceBids.text = bidsModel.price
             binding.txtAmountBids.text = bidsModel.amount

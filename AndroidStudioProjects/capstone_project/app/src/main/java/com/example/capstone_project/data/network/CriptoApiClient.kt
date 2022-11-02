@@ -1,8 +1,8 @@
 package com.example.capstone_project.data.network
 
-import com.example.capstone_project.data.entities.response.AvaibleBookResponse
-import com.example.capstone_project.data.entities.response.OrderBookResponse
-import com.example.capstone_project.data.entities.response.TickerResponse
+import com.example.capstone_project.data.network.entities.response.AvaibleBookResponse
+import com.example.capstone_project.data.network.entities.response.OrderBookResponse
+import com.example.capstone_project.data.network.entities.response.TickerResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

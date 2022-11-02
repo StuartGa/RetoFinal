@@ -5,16 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.capstone_project.data.entities.model.Ask
+import com.example.capstone_project.data.network.entities.model.Ask
 import com.example.capstone_project.databinding.CriptoBidsItemBinding
+import com.example.capstone_project.domain.model.AskDomain
 
-class AskAdapter() : ListAdapter<Ask, AskAdapter.ViewHolder>(difCallback) {
+class AskAdapter() : ListAdapter<AskDomain, AskAdapter.ViewHolder>(difCallback) {
 
     companion object {
-        var difCallback = object : DiffUtil.ItemCallback<Ask>() {
-            override fun areItemsTheSame(oldItem: Ask, newItem: Ask): Boolean =
+        var difCallback = object : DiffUtil.ItemCallback<AskDomain>() {
+            override fun areItemsTheSame(oldItem: AskDomain, newItem: AskDomain): Boolean =
                 oldItem.book == newItem.book
-            override fun areContentsTheSame(oldItem: Ask, newItem: Ask): Boolean =
+            override fun areContentsTheSame(oldItem: AskDomain, newItem: AskDomain): Boolean =
                 oldItem == newItem
         }
     }
@@ -30,7 +31,7 @@ class AskAdapter() : ListAdapter<Ask, AskAdapter.ViewHolder>(difCallback) {
     }
 
     class ViewHolder(val binding: CriptoBidsItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun enlazarItem(asksModel: Ask) {
+        fun enlazarItem(asksModel: AskDomain) {
             binding.txtBookBids.text = asksModel.book
             binding.txtPriceBids.text = asksModel.price
             binding.txtAmountBids.text = asksModel.amount

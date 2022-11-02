@@ -1,7 +1,7 @@
 package com.example.capstone_project.presentation.ui.adapter
 
-import com.example.capstone_project.data.entities.model.Book
+import com.example.capstone_project.domain.model.BookDomain
 
 interface OnSelectedItem {
-    fun onItemListener(book: Book)
+    fun onItemListener(book: BookDomain)
 }
