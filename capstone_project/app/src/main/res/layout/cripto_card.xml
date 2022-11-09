@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardBook"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/imageBitcoin"
+            android:src="@drawable/ic_bitcoin"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/txtBookName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="BookName"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/imageBitcoin"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/txt_MinimumPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minimum Price: "
+            android:layout_marginTop="8dp"
+            android:textStyle="italic"
+            android:textSize="12sp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/imageBitcoin"
+            app:layout_constraintTop_toBottomOf="@id/txtBookName"/>
+
+        <TextView
+            android:id="@+id/txt_MaximumPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maximum Price: "
+            android:layout_marginTop="8dp"
+            android:textStyle="italic"
+            android:textSize="12sp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/imageBitcoin"
+            app:layout_constraintTop_toBottomOf="@id/txt_MinimumPrice"/>
+
+        <TextView
+            android:id="@+id/txt_MinimumPriceValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="2000000"
+            android:layout_marginTop="8dp"
+            android:textStyle="italic"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/txt_MinimumPrice"
+            app:layout_constraintTop_toBottomOf="@id/txtBookName"/>
+
+        <TextView
+            android:id="@+id/txt_MaximumPriceValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="2000000"
+            android:layout_marginTop="8dp"
+            android:textStyle="italic"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/txt_MaximumPrice"
+            app:layout_constraintTop_toBottomOf="@id/txt_MinimumPrice"/>
+        <TextView
+            android:id="@+id/txt_MaximumAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textStyle="italic"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
