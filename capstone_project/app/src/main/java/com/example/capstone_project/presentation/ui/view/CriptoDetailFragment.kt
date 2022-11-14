@@ -4,19 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.capstone_project.R
 import com.example.capstone_project.data.Resource
 import com.example.capstone_project.databinding.FragmentCriptoDetailBinding
-import com.example.capstone_project.presentation.util.Util
 import com.example.capstone_project.presentation.ui.adapter.AskAdapter
 import com.example.capstone_project.presentation.ui.adapter.BidsAdapter
 import com.example.capstone_project.presentation.ui.viewmodel.MainActivityViewModel
+import com.example.capstone_project.presentation.util.Util
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
@@ -35,10 +35,6 @@ class CriptoDetailFragment : Fragment() {
     private var adapterBids = BidsAdapter()
     private var adapterAsks = AskAdapter()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -52,14 +48,19 @@ class CriptoDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        CoroutineScope(Dispatchers.Main).launch {
+        lifecycleScope.launch {
             criptoViewModel.getAsks(bookName)
             criptoViewModel.getBids(bookName)
             criptoViewModel.asks.collect {
                 when (it) {
-                    is Resource.Error -> {}
-                    is Resource.Loading -> {}
+                    is Resource.Error -> {
+                        Toast.makeText(activity, R.string.errorToast, Toast.LENGTH_LONG)
+                    }
+                    is Resource.Loading -> {
+                    }
                     is Resource.Success -> {
+                        _binding?.progressBar?.visibility = View.GONE
+
                         adapterAsks.submitList(it.data)
                         binding.apply {
                             this.imageBitcoinDetail.setImageResource(Util.getResources(bookName))
@@ -68,10 +69,12 @@ class CriptoDetailFragment : Fragment() {
                         }
                     }
                 }
-                CoroutineScope(Dispatchers.Main).launch {
+                lifecycleScope.launch {
                     criptoViewModel.bids.collect {
                         when (it) {
-                            is Resource.Error -> {}
+                            is Resource.Error -> {
+                                Toast.makeText(activity, R.string.errorToast, Toast.LENGTH_LONG)
+                            }
                             is Resource.Loading -> {}
                             is Resource.Success -> {
                                 binding.apply {
@@ -86,11 +89,13 @@ class CriptoDetailFragment : Fragment() {
             }
         }
 
-        CoroutineScope(Dispatchers.Main).launch {
+        lifecycleScope.launch {
             criptoViewModel.getTicker(bookName)
             criptoViewModel.tickers.collect {
                 when (it) {
-                    is Resource.Error -> {}
+                    is Resource.Error -> {
+                        Toast.makeText(activity, R.string.errorToast, Toast.LENGTH_LONG)
+                    }
                     is Resource.Loading -> {}
                     is Resource.Success -> {
                         binding.txtBookNameDetail.text = it.data.book

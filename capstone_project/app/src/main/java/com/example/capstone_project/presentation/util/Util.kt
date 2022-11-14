@@ -1,10 +1,11 @@
 package com.example.capstone_project.presentation.util
 
-
+import android.content.Context
+import android.net.ConnectivityManager
 import com.example.capstone_project.R
 
 object Util {
-
+    lateinit var instance: Context
     fun getResources(book: String): Int {
         return when (book) {
             "btc_mxn" -> {
@@ -44,9 +45,10 @@ object Util {
     }
 
     fun isNetworkEnabled(): Boolean {
-        var isWiFiConnect = true
-        var isMobileConnect = true
-        /*instance?.let {
+        var isWiFiConnect = false
+        var isMobileConnect = false
+
+        instance?.let {
             val manager = it.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             manager.allNetworks.forEach { network ->
                 manager.getNetworkInfo(network)?.apply {
@@ -58,7 +60,7 @@ object Util {
                     }
                 }
             }
-        }*/
+        }
 
         return isWiFiConnect || isMobileConnect
     }

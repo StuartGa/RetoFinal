@@ -26,4 +26,3 @@ class GetAskUseCase @Inject constructor(private val repository: CriptoRepository
         }
 }
 
-// TODO CONTEXT sincronizacion

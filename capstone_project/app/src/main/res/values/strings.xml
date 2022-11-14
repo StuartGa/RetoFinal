@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">Capstone Project</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="last_price">Last Price: $%1$s</string>
     <string name="highPrice">High Price: $%1$s</string>
     <string name="lowPrice">Low Price: $%1$s</string>
     <string name="bookDetail">Book: $%1$s</string>
     <string name="priceDetail">Price: $%1$s</string>
     <string name="amountDetail">Amount: $%1$s</string>
+    <string name="errorToast">An error has been occurred</string>
+
 </resources>

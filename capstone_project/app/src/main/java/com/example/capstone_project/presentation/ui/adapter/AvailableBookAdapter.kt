@@ -5,12 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.capstone_project.data.network.entities.model.Book
 import com.example.capstone_project.databinding.CriptoCardBinding
 import com.example.capstone_project.domain.model.BookDomain
 import com.example.capstone_project.presentation.util.Util
 
 class AvailableBookAdapter(
-    private val listener: OnSelectedItem
+    private val listener: (BookDomain) -> Unit
 ) : ListAdapter<BookDomain, AvailableBookAdapter.ViewHolder>(difCallback) {
 
     companion object {
@@ -40,7 +41,7 @@ class AvailableBookAdapter(
             binding.imageBitcoin.setImageResource(Util.getResources(bookModel.book))
 
             binding.cardBook.setOnClickListener {
-                listener.onItemListener(bookModel)
+                listener(bookModel)
             }
         }
     }
