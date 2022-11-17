@@ -1,4 +1,4 @@
-package com.example.capstone_project.data.network.entities.model
+package com.example.capstoneproject.data.network.entities.model
 
 data class Bid(
     val book: String,

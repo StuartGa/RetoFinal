@@ -1,4 +1,4 @@
-package com.example.capstone_project.data.network.entities.model // ktlint-disable package-name
+package com.example.capstoneproject.data.network.entities.model // ktlint-disable package-name
 
 import com.google.gson.annotations.SerializedName
 

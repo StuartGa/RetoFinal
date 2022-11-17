@@ -1,13 +1,12 @@
-package com.example.capstone_project.presentation.ui.adapter
+package com.example.capstoneproject.presentation.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.capstone_project.data.network.entities.model.Ask
-import com.example.capstone_project.databinding.CriptoBidsItemBinding
-import com.example.capstone_project.domain.model.AskDomain
+import com.example.capstoneproject.databinding.CriptoBidsItemBinding
+import com.example.capstoneproject.domain.model.AskDomain
 
 class AskAdapter() : ListAdapter<AskDomain, AskAdapter.ViewHolder>(difCallback) {
 

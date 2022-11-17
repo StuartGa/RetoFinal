@@ -1,7 +1,7 @@
-package com.example.capstone_project.domain.model
+package com.example.capstoneproject.domain.model
 
-import com.example.capstone_project.data.network.entities.model.Ask
-import com.example.capstone_project.data.local.entities.AskEntity
+import com.example.capstoneproject.data.local.entities.AskEntity
+import com.example.capstoneproject.data.network.entities.model.Ask
 
 data class AskDomain(
     val book: String,

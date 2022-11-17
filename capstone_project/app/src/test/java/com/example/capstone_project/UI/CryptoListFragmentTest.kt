@@ -1,8 +1,8 @@
-package com.example.capstone_project.UI
+package com.example.capstoneproject.UI
 
-import com.example.capstone_project.presentation.ui.adapter.AvailableBookAdapter
-import com.example.capstone_project.presentation.ui.view.CriptoListFragment
-import com.example.capstone_project.presentation.ui.viewmodel.MainActivityViewModel
+import com.example.capstoneproject.presentation.ui.adapter.AvailableBookAdapter
+import com.example.capstoneproject.presentation.ui.view.CriptoListFragment
+import com.example.capstoneproject.presentation.ui.viewmodel.MainActivityViewModel
 import io.mockk.clearAllMocks
 import io.mockk.mockk
 import org.junit.After

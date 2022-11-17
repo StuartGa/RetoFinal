@@ -1,4 +1,4 @@
-package com.example.capstone_project.presentation.ui.view
+package com.example.capstoneproject.presentation.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,12 +12,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.capstone_project.R
-import com.example.capstone_project.data.Resource
-import com.example.capstone_project.databinding.FragmentCriptoListBinding
-import com.example.capstone_project.domain.model.BookDomain
-import com.example.capstone_project.presentation.ui.adapter.AvailableBookAdapter
-import com.example.capstone_project.presentation.ui.viewmodel.MainActivityViewModel
+import com.example.capstoneproject.R
+import com.example.capstoneproject.data.Resource
+import com.example.capstoneproject.databinding.FragmentCriptoListBinding
+import com.example.capstoneproject.domain.model.BookDomain
+import com.example.capstoneproject.presentation.ui.adapter.AvailableBookAdapter
+import com.example.capstoneproject.presentation.ui.viewmodel.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -40,11 +40,11 @@ class CriptoListFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             criptoViewModel.avaibleBooks.collect {
                 when (it) {
                     is Resource.Error -> {
-                        Toast.makeText(activity, "Ha ocurrido un error", Toast.LENGTH_LONG)
+                        Toast.makeText(activity, "Ha ocurrido un error", Toast.LENGTH_LONG).show()
                     }
                     is Resource.Loading -> {
                         _binding?.progressBar?.visibility = View.VISIBLE

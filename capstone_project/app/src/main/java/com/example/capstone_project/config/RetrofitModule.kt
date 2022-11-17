@@ -1,7 +1,7 @@
-package com.example.capstone_project.config
+package com.example.capstoneproject.config
 
-import com.example.capstone_project.data.network.CriptoApiClient
-import com.example.capstone_project.data.network.CriptoEndpoints
+import com.example.capstoneproject.data.network.CriptoApiClient
+import com.example.capstoneproject.data.network.CriptoEndpoints
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,6 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import java.util.concurrent.TimeUnit
@@ -25,6 +26,7 @@ object RetrofitModule {
             .baseUrl(CriptoEndpoints.criptoUrl)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
 
     @Singleton
@@ -42,7 +44,10 @@ object RetrofitModule {
     @Provides
     fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         val okHttpClient = OkHttpClient().newBuilder()
-
+            .addInterceptor {
+                val newRequest = it.request().newBuilder().addHeader("User-Agent", "Header1").build()
+                it.proceed(newRequest)
+            }
         okHttpClient.callTimeout(20, TimeUnit.SECONDS)
         okHttpClient.connectTimeout(20, TimeUnit.SECONDS)
         okHttpClient.readTimeout(20, TimeUnit.SECONDS)

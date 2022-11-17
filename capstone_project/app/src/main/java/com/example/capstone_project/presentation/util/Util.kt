@@ -1,8 +1,8 @@
-package com.example.capstone_project.presentation.util
+package com.example.capstoneproject.presentation.util
 
 import android.content.Context
 import android.net.ConnectivityManager
-import com.example.capstone_project.R
+import com.example.capstoneproject.R
 
 object Util {
     lateinit var instance: Context

@@ -1,7 +1,7 @@
-package com.example.capstone_project.domain.model
+package com.example.capstoneproject.domain.model
 
-import com.example.capstone_project.data.local.entities.TickerEntity
-import com.example.capstone_project.data.network.entities.model.Ticker
+import com.example.capstoneproject.data.local.entities.TickerEntity
+import com.example.capstoneproject.data.network.entities.model.Ticker
 
 data class TickerDomain(
     val book: String,
@@ -22,4 +22,3 @@ fun TickerEntity.toDomain() = TickerDomain(
     high = high,
     low = low
 )
-

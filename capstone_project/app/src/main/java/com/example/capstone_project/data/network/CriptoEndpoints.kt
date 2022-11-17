@@ -1,4 +1,4 @@
-package com.example.capstone_project.data.network
+package com.example.capstoneproject.data.network
 
 object CriptoEndpoints {
     val criptoUrl = "https://api.bitso.com/v3/"

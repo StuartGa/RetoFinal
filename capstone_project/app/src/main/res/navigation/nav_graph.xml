@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/criptoListFragment"
-        android:name="com.example.capstone_project.presentation.ui.view.CriptoListFragment"
+        android:name="com.example.capstoneproject.presentation.ui.view.CriptoListFragment"
         android:label="fragment_cripto_list"
         tools:layout="@layout/fragment_cripto_list" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/criptoDetailFragment"
-        android:name="com.example.capstone_project.presentation.ui.view.CriptoDetailFragment"
+        android:name="com.example.capstoneproject.presentation.ui.view.CriptoDetailFragment"
         android:label="fragment_cripto_detail"
         tools:layout="@layout/fragment_cripto_detail" >
         <action

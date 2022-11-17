@@ -1,8 +1,8 @@
-package com.example.capstone_project.config
+package com.example.capstoneproject.config
 
 import android.content.Context
 import androidx.room.Room
-import com.example.capstone_project.data.local.database.CryptoDatabase
+import com.example.capstoneproject.data.local.database.CryptoDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

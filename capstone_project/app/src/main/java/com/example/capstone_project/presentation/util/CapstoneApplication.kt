@@ -1,4 +1,4 @@
-package com.example.capstone_project.presentation.util
+package com.example.capstoneproject.presentation.util
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

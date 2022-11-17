@@ -1,8 +1,7 @@
-package com.example.capstone_project.domain.model
+package com.example.capstoneproject.domain.model
 
-import com.example.capstone_project.data.network.entities.model.Bid
-import com.example.capstone_project.data.local.entities.AskEntity
-import com.example.capstone_project.data.local.entities.BidsEntity
+import com.example.capstoneproject.data.local.entities.BidsEntity
+import com.example.capstoneproject.data.network.entities.model.Bid
 
 data class BidDomain(
     val book: String,

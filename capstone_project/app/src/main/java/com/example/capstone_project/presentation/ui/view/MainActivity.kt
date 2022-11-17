@@ -1,9 +1,9 @@
-package com.example.capstone_project.presentation.ui.view
+package com.example.capstoneproject.presentation.ui.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.capstone_project.R
-import com.example.capstone_project.presentation.util.Util
+import com.example.capstoneproject.R
+import com.example.capstoneproject.presentation.util.Util
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.example.capstone_project
+package com.example.capstoneproject
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.capstone_project.data.local.DAO
+package com.example.capstoneproject.data.local.DAO
 
 import androidx.room.Dao
 import androidx.room.Delete

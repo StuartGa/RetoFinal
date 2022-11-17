@@ -1,4 +1,4 @@
-package com.example.capstone_project.data
+package com.example.capstoneproject.data
 
 sealed class Resource<T> {
     class Loading<T>() : Resource<T>()

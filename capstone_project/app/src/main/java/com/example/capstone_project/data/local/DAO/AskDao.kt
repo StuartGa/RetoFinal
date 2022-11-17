@@ -1,8 +1,8 @@
-package com.example.capstone_project.data.local.DAO
+package com.example.capstoneproject.data.local.DAO
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.example.capstone_project.data.local.entities.AskEntity
+import com.example.capstoneproject.data.local.entities.AskEntity
 @Dao
 interface AskDao : BaseDao<AskEntity> {
     @Query("SELECT * FROM ask")
