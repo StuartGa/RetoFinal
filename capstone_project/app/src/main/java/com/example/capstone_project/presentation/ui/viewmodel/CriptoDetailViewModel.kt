@@ -15,7 +15,6 @@ import com.example.capstoneproject.domain.model.TickerDomain
 import com.example.capstoneproject.domain.model.toDomain
 import com.example.capstoneproject.domain.usescase.GetAskUseCase
 import com.example.capstoneproject.domain.usescase.GetBidsUseCase
-import com.example.capstoneproject.domain.usescase.GetTickerUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -28,15 +27,11 @@ import javax.inject.Inject
 class CriptoDetailViewModel@Inject constructor(
     private val getBidsUseCase: GetBidsUseCase,
     private val getAskUseCase: GetAskUseCase,
-    private val getTickerUseCase: GetTickerUseCase,
     private val repository: CriptoRepository
 ) : ViewModel() {
 
     lateinit var bookFragment: String
 
-    val tickers: MutableStateFlow<Resource<TickerDomain>> = MutableStateFlow<Resource<TickerDomain>>(
-        Resource.loading<TickerDomain>()
-    )
     private var _tickerlive = MutableLiveData<Resource<TickerDomain>>()
     val tickerlive: LiveData<Resource<TickerDomain>> = _tickerlive
 
@@ -51,7 +46,7 @@ class CriptoDetailViewModel@Inject constructor(
     }
     fun getBids(book: String) {
         viewModelScope.launch {
-            getBidsUseCase.invoke(book)?.collect {
+            getBidsUseCase.invoke(book).collect {
                 println("response" + it)
                 _bids.value = it
             }
@@ -60,7 +55,7 @@ class CriptoDetailViewModel@Inject constructor(
 
     fun getAsks(book: String) {
         viewModelScope.launch {
-            getAskUseCase.invoke(book)?.collect {
+            getAskUseCase.invoke(book).collect {
                 println("response" + it)
                 _asks.value = it
             }
