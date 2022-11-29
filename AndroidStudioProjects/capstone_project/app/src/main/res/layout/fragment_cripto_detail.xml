@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="presentation.ui.view.CriptoDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageBitcoinDetail"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_bitcoin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/txtBookNameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BookName"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageBitcoinDetail"/>
+
+        <TextView
+            android:id="@+id/txtLastPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/last_price"
+            android:layout_margin="8dp"
+            android:textStyle="italic"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtBookNameDetail"/>
+
+        <TextView
+            android:id="@+id/txtHighPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/highPrice"
+            android:textStyle="italic"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLastPrice"/>
+
+        <TextView
+            android:id="@+id/txtlowPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/highPrice"
+            android:textStyle="italic"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtHighPrice"/>
+
+        <TextView
+            android:id="@+id/sectionAsks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Asks"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/purple_500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtlowPrice" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAsks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sectionAsks"/>
+
+        <TextView
+            android:id="@+id/sectionBids"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Bids"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/purple_500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerAsks" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerBids"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sectionBids"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
